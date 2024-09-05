@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f0f5;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+h1 {
+    font-size: 24px;
+    color: #d23669;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    max-width: 500px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo semitransparente para realçar a frase */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none; /* Impede que os corações interfiram com o clique na área da frase */
+}
+
+.heart {
+    width: 100px;
+    height: 100px;
+    background-color: #d23669;
+    position: absolute;
+    transform: rotate(-45deg);
+    animation: float 5s ease-in-out infinite;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    background-color: #d23669;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart:before {
+    top: -50px;
+    left: 0;
+}
+
+.heart:after {
+    left: 50px;
+    top: 0;
+}
+
+/* Animação para fazer os corações flutuarem */
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(-45deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(-45deg);
+    }
+    100% {
+        transform: translateY(0) rotate(-45deg);
+    }
+}
+
+/* Posicionamento dos corações */
+.heart:nth-child(1) {
+    top: 10%;
+    left: 20%;
+    animation-duration: 6s;
+}
+
+.heart:nth-child(2) {
+    top: 30%;
+    right: 20%;
+    animation-duration: 7s;
+}
+
+.heart:nth-child(3) {
+    bottom: 10%;
+    left: 50%;
+    animation-duration: 5s;
+}
